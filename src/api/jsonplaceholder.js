@@ -9,4 +9,5 @@ async fetchPosts(){
         alert('ошибка')
     }
 
-}*/
+}
+*/
