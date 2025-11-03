@@ -4,7 +4,7 @@
     <my-input
         v-model="post.title"
         type="text"
-        placeholder="название"
+        placeholder="названиеееееее"
     />
     <my-input
         v-model="post.body"
