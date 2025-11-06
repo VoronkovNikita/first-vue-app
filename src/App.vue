@@ -1,13 +1,17 @@
 <template>
   <div class="app">
     <h1>Страница с постами</h1>
-    <input type="text" v-model="modificatorValue">
-    <my-button
-        @click="showDialog"
-        style="margin: 15px 0;"
-    >
-      создать пост
-    </my-button>
+    <div class="app__btns">
+      <my-button
+          @click="showDialog"
+          style="margin: 15px 0;"
+      >
+        создать пост
+      </my-button>
+      <my-select
+
+      />
+    </div>
 
     <my-dialog v-model:show="dialogVisible">
       <post-form @create="createPost"></post-form>
@@ -52,17 +56,13 @@ export default {
     async fetchPosts(){
       try{
         this.isPostsLoading = true;
-        setTimeout(async () =>{
+
           const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
           this.posts = response.data;
-          this.isPostsLoading = false;
-        },1000)
-
-
       } catch(e){
         alert('ошибка')
       }finally {
-
+        this.isPostsLoading = false;
       }
     }
   },
@@ -81,7 +81,10 @@ export default {
 .app{
   padding: 20px;
 }
-
+.app__btns{
+  display: flex;
+  justify-content: space-between;
+}
 
 
 </style>
