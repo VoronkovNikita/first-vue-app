@@ -1,18 +1,26 @@
 <template>
-  <input :value="modelValue" @input="updateInput" class="input" type="text">
+  <input
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      v-bind="$attrs"
+      class="input"
 </template>
 
 <script>
 export default {
   name: "my-input",
   props:{
-    modelValue:[String, Number]
+    modelValue: {
+      type: [String, Number],
+      default: ''
+}
   },
-  methods:{
+  /*methods:{
     updateInput(event){
-      this.$emit("update:modelValue", event.target.value)
+      this.$emit("update:modelValue")
     }
-  }
+  }*/
+  emits: ['update:modelValue']  // ДОБАВИТЬ эту строку
 }
 </script>
 

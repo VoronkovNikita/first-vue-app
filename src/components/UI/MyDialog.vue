@@ -1,5 +1,5 @@
 <template>
-  <div class="dialog" v-if="show" @click.stop="hideDialog">
+  <div class="dialog" v-if="show" @click="hideDialog">
     <div @click.stop class="dialog__content">
         <slot></slot>
     </div>
@@ -15,11 +15,13 @@ export default {
       default: false
     }
   },
+  emits: ['update:show'],
   methods:{
-  hideDialog() {
-    this.$emit('update:show', false)
-  }
-  }
+    hideDialog() {
+      this.$emit('update:show', false);
+    }
+    }
+
 }
 </script>
 
@@ -31,7 +33,7 @@ export default {
   left : 0;
   background: rgba(0,0,0, 0.5);
   position: fixed;
-  dispaly: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;

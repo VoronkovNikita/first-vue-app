@@ -1,4 +1,4 @@
-<template>
+`<template>
   <form @submit.prevent>
     <h4>Создание поста</h4>
     <my-input
@@ -39,6 +39,7 @@ export default {
   }
 
 },
+  emits: ['create'],
   methods: {
     createPost(){
       this.post.id = Date.now();
@@ -48,6 +49,7 @@ export default {
         body: ""
       }
     }
+
   }
 }
 </script>
@@ -59,4 +61,4 @@ form{
 }
 
 
-</style>
+</style>`

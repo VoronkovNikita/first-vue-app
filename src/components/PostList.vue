@@ -26,7 +26,8 @@ export default {
       type: Array,
       required: true
     }
-  }
+  },
+  emits: ['remove']
 
 }
 </script>

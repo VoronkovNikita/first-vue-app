@@ -24,7 +24,8 @@ export default {
           type: Object,
           required: true,
         }
-      }
+      },
+  emits: ['remove']
 }
 </script>
 
